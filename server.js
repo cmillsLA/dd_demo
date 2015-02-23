@@ -18,17 +18,9 @@ var twitter_secret = '12345';
 var twitter = new twitterAPI({
   consumerKey: twitter_key,
   consumerSecret: twitter_secret,
-  //callbackURL: "http://ancient-escarpment-3106.herokuapp.com/auth/twitter/callback"
   callbackURL: "/#/dashboard"
 });
 
-//var bodyParser = require('body-parser');
-//var querystring = require('querystring');
-//app.use(cookieParser('12345'));
-/*app.use( bodyParser.json() );
- app.use(bodyParser.urlencoded({
- extended: true
- }));*/
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(session({
@@ -76,8 +68,6 @@ app.get('/logout', function(req, res) {
 passport.use(new TwitterStrategy({
     consumerKey: twitter_key,
     consumerSecret: twitter_secret,
-    //callbackURL: "http://ancient-escarpment-3106.herokuapp.com/"
-    //callbackURL: "/#/dashboard"
     callbackURL: "/auth/twitter/callback",
     passReqToCallback: true
   },
